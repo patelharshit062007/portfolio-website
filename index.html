@@ -1,197 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SATIC Internship Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio | Dark Variant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- 1. DARK THEME PALETTE --- */
+        :root {
+            --bg-dark: #0a0a0a;
+            --surface: #161616;
+            --accent: #10b981; /* Emerald Green */
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
-}
+        html { scroll-behavior: smooth; }
 
-body{
-    background:#e6edf2;
-    padding:20px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* HEADER */
-.header{
-    text-align:center;
-    margin-bottom:20px;
-}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
 
-.header h1{
-    font-size:28px;
-    font-weight:700;
-}
+        /* --- 2. BOLD NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            border-bottom: 1px solid #222;
+        }
 
-.header h2{
-    margin-top:10px;
-    font-weight:500;
-}
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: -1px;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
 
-/* TOP CARD */
-.top-card{
-    background:#dce6f1;
-    border-radius:15px;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
 
-.deadline{
-    text-align:right;
-    font-weight:600;
-}
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
 
-/* MAIN GRID */
-.container{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:20px;
-}
+        nav a:hover {
+            color: var(--accent);
+        }
 
-/* CARD STYLE */
-.card{
-    background:#dce6f1;
-    padding:20px;
-    border-radius:15px;
-}
+        /* --- 3. IMPACT HERO --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 12%;
+            background: radial-gradient(circle at 80% 20%, #10b98115, transparent);
+        }
 
-.card h3{
-    margin-bottom:10px;
-    text-decoration: underline;
-}
+        #hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+        }
 
-.card ul{
-    margin-left:20px;
-}
+        #hero span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent);
+        }
 
-.card li{
-    margin-bottom:8px;
-}
+        .cta-box {
+            display: flex;
+            gap: 20px;
+        }
 
-/* RIGHT SIDE */
-.right .box{
-    margin-bottom:20px;
-}
+        .btn-main {
+            padding: 1.2rem 3rem;
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
 
-/* FOOTER TEXT */
-.footer{
-    text-align:center;
-    margin-top:20px;
-}
+        .btn-main:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
 
-.footer h2{
-    color:#2d7d46;
-    font-family:cursive;
-}
+        /* --- 4. CLEANER LAYOUT & SPACING --- */
+        section { padding: 120px 12%; }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .container{
-        grid-template-columns:1fr;
-    }
-}
-</style>
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
+        h2::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: #333;
+        }
+
+        /* --- 5. DIFFERENT PROJECT LAYOUT --- */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            padding-bottom: 60px;
+            border-bottom: 1px solid #222;
+        }
+
+        .project-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- 6. GRIDLESS SKILLS --- */
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-chip {
+            border: 1px solid #333;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .skill-chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: #10b98105;
+        }
+
+        /* --- 7. MINIMAL CONTACT --- */
+        .contact-minimal {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid #333;
+            padding: 1.2rem;
+            color: white;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        footer {
+            padding: 4rem;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .project-item { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
-    <h1>SATIC AI FRONTEND DEVELOPMENT INTERNSHIP</h1>
-    <h2>Week 2 Project : Student Portfolio Website</h2>
-</div>
-
-<div class="top-card">
-    <div>
-        <h3>Day 10 Task : New Variant + Final Deploy</h3>
-        <p>Explore a second design approach and publish your best version</p>
-    </div>
-    <div class="deadline">
-        <h3>Deadline</h3>
-        <p>10 PM, Tonight</p>
-    </div>
-</div>
-
-<div class="container">
-
-    <!-- LEFT SIDE -->
-    <div class="card">
-        <h3>Requirements</h3>
-
-        <p><b>1. Variant Creation</b></p>
+    <nav>
+        <div class="logo">PORTFOLIO // 2026</div>
         <ul>
-            <li>Create a visibly different version</li>
-            <li>Not minor changes</li>
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#skills">Tech</a></li>
+            <li><a href="#contact">End</a></li>
         </ul>
+    </nav>
 
-        <p><b>2. Design Improvement</b></p>
-        <ul>
-            <li>Better spacing</li>
-            <li>Cleaner layout</li>
-            <li>Consistent styling</li>
-        </ul>
-
-        <p><b>3. Version Selection</b></p>
-        <ul>
-            <li>Compare both versions</li>
-            <li>Choose the stronger design</li>
-        </ul>
-
-        <p><b>4. Final Cleanup</b></p>
-        <ul>
-            <li>Fix alignment</li>
-            <li>Maintain consistency</li>
-            <li>Remove unnecessary code</li>
-        </ul>
-
-        <p><b>5. Deployment</b></p>
-        <ul>
-            <li>Push to GitHub</li>
-            <li>Ensure live site is working</li>
-        </ul>
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="right">
-
-        <div class="card box">
-            <h3>Submission Format (in satic)</h3>
-            <p>Day 10</p>
-            <p>Satic ID:</p>
-            <p>Name:</p>
-            <p>Project Title:</p>
-            <p>GitHub Repo Link:</p>
-            <p>Live Link (GitHub Pages):</p>
+    <header id="hero">
+        <h1>CREATIVE<br><span>DEVELOPER</span></h1>
+        <div class="cta-box">
+            <a href="#projects" class="btn-main">EXPLORE WORK</a>
         </div>
+    </header>
 
-        <div class="card box">
-            <h3>Important</h3>
-            <ul>
-                <li>Clear difference between versions required</li>
-                <li>Final output should feel complete</li>
-            </ul>
+    <section id="projects">
+        <h2>SELECTED PROJECTS</h2>
+        <div class="projects-list">
+            <div class="project-item">
+                <div class="project-content">
+                    <h3>01. Premium Registration</h3>
+                    <p>High-fidelity UI components built with custom CSS variables and focused user experience flows.</p>
+                    <a href="#" style="color: var(--accent); text-decoration: none;">VIEW REPO &rarr;</a>
+                </div>
+                <div style="background: var(--surface); height: 200px; border-radius: 8px;"></div>
+            </div>
 
-            <h3 style="margin-top:10px;">Outcome</h3>
-            <p>A refined, live portfolio website</p>
+            <div class="project-item">
+                <div class="project-content">
+                    <h3>02. Minecraft Engine</h3>
+                    <p>Exploring 3D space and structural logic using pure web technologies and optimized grid systems.</p>
+                    <a href="#" style="color: var(--accent); text-decoration: none;">VIEW REPO &rarr;</a>
+                </div>
+                <div style="background: var(--surface); height: 200px; border-radius: 8px;"></div>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section id="skills">
+        <h2>TECH STACK</h2>
+        <div class="skills-wrap">
+            <div class="skill-chip">HTML5 / SEMANTIC</div>
+            <div class="skill-chip">CSS3 / ANIMATIONS</div>
+            <div class="skill-chip">JAVASCRIPT / ES6</div>
+            <div class="skill-chip">GIT / WORKFLOW</div>
+            <div class="skill-chip">RESPONSIVE DESIGN</div>
+            <div class="skill-chip">UI INTERACTIVITY</div>
+        </div>
+    </section>
 
-</div>
+    <section id="contact">
+        <div class="contact-minimal">
+            <h2>HAVE A PROJECT?</h2>
+            <form>
+                <input type="text" placeholder="NAME">
+                <input type="email" placeholder="EMAIL">
+                <textarea rows="4" placeholder="MESSAGE"></textarea>
+                <button type="submit" class="btn-main" style="width: 100%; cursor: pointer; border: none;">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
 
-<div class="footer">
-    <h2>Best Of Luck 🍀</h2>
-    <p><b>SATIC AI Internships</b></p>
-</div>
+    <footer>
+        <p>&copy; 2026 [YOUR NAME] // SATIC AI INTERNSHIP FINAL DEPLOY</p>
+    </footer>
 
 </body>
 </html>
